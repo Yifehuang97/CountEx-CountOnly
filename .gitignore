@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# Experiment outputs
+experiments/
+wandb/
+data/
+*.pth
+*.bin
+*.safetensors
+
+# Evaluation artifacts
+matched_eval/
+localization_eval/
+pairtally_eval/
+logs*/
+eval_results/
+kc_eval/
+
+# LaTeX
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+*.synctex.gz
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
