@@ -85,23 +85,3 @@ GPUs keep the product constant, e.g. 3 GPUs with `grad_accum 2`.
 > If you need `grad_accum > 1`, use the plain-DDP configs (`*_ddp.yaml`) instead,
 > and pass `--save_safetensors False`, since the model ties `class_embed`
 > weights between the decoder and the top level.
-
-## Ablations
-
-```bash
-bash scripts/ablation/component/kc_wo_detection_phase.sh   # no density-to-decoder feedback
-bash scripts/ablation/component/kc_wo_mean_teacher.sh
-VARIANT=ctrl_density_count_only GPUS=0,1,2 DDP_CFG=1n3r_ddp ACCUM=2 \
-    bash scripts/ablation/train_variant.sh                 # count-loss-only controls
-```
-
-`train_variant.sh` also provides `ctrl_decoder_count_only`, `sel_acc_only` and
-`sel_random`. The data-selection helpers
-(`analyze_selection_sweep.py`, `build_acc_only_dataset.py`,
-`build_random_selection_dataset.py`) reproduce the selected training sets: count
-agreement keeps 9,626 of the 100,000 scored count-only images, and the semantic
-check leaves 7,397.
-
-## License
-
-Not yet chosen. Add a license file before making this repository public.
